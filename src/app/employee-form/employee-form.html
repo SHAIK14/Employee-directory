@@ -1,0 +1,109 @@
+<mat-toolbar color="primary">
+  <span>{{isEditMode ? 'Edit Employee' : 'Add New Employee'}}</span>
+</mat-toolbar>
+
+<div class="form-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{isEditMode ? 'Update Employee Information' : 'Create New Employee'}}</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="name" placeholder="Enter full name">
+            <mat-error *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
+              {{getFieldErrorMessage('name')}}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" placeholder="Enter username">
+            <mat-error *ngIf="employeeForm.get('username')?.invalid && employeeForm.get('username')?.touched">
+              {{getFieldErrorMessage('username')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="Enter email address">
+            <mat-error *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched">
+              {{getFieldErrorMessage('email')}}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" placeholder="Enter phone number">
+            <mat-error *ngIf="employeeForm.get('phone')?.invalid && employeeForm.get('phone')?.touched">
+              {{getFieldErrorMessage('phone')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Website</mat-label>
+            <input matInput formControlName="website" placeholder="Enter website URL">
+            <mat-error *ngIf="employeeForm.get('website')?.invalid && employeeForm.get('website')?.touched">
+              {{getFieldErrorMessage('website')}}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Company Name</mat-label>
+            <input matInput formControlName="companyName" placeholder="Enter company name">
+            <mat-error *ngIf="employeeForm.get('companyName')?.invalid && employeeForm.get('companyName')?.touched">
+              {{getFieldErrorMessage('companyName')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Street Address</mat-label>
+            <input matInput formControlName="street" placeholder="Enter street address">
+            <mat-error *ngIf="employeeForm.get('street')?.invalid && employeeForm.get('street')?.touched">
+              {{getFieldErrorMessage('street')}}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" placeholder="Enter city">
+            <mat-error *ngIf="employeeForm.get('city')?.invalid && employeeForm.get('city')?.touched">
+              {{getFieldErrorMessage('city')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input matInput formControlName="zipcode" placeholder="Enter zip code">
+            <mat-error *ngIf="employeeForm.get('zipcode')?.invalid && employeeForm.get('zipcode')?.touched">
+              {{getFieldErrorMessage('zipcode')}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!employeeForm.valid">
+            <mat-icon>save</mat-icon>
+            {{isEditMode ? 'Update Employee' : 'Save Employee'}}
+          </button>
+          
+          <button mat-button type="button" (click)="goBackToEmployeeList()">
+            <mat-icon>cancel</mat-icon>
+            Cancel
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

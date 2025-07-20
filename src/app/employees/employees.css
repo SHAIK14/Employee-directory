@@ -1,0 +1,94 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.toolbar-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.search-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.employee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .toolbar-title {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+  }
+  
+  .toolbar-buttons {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  
+  .add-btn, .signout-btn {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  
+  .btn-text {
+    display: none;
+  }
+  
+  .employee-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar-title {
+    font-size: 11px;
+    max-width: 120px;
+  }
+  
+  .add-btn, .signout-btn {
+    min-width: 36px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.employee-card {
+  max-width: 400px;
+}
+
+.employee-card mat-card-header {
+  margin-bottom: 10px;
+}
+
+.employee-card mat-card-content p {
+  margin: 5px 0;
+}
+
+.employee-card mat-card-actions {
+  display: flex;
+  gap: 10px;
+}

@@ -1,0 +1,54 @@
+<div class="auth-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Employee Directory</mat-card-title>
+    </mat-card-header>
+    
+    <mat-tab-group>
+      <mat-tab label="Login">
+        <mat-card-content>
+          <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+            <mat-form-field appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput [(ngModel)]="loginCredentials.username" name="username" required>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" [(ngModel)]="loginCredentials.password" name="password" required>
+            </mat-form-field>
+            
+            <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">
+              Sign In
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+      
+      <mat-tab label="Register">
+        <mat-card-content>
+          <form #registerForm="ngForm" (ngSubmit)="registerNewUser()">
+            <mat-form-field appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput [(ngModel)]="registerCredentials.username" name="regUsername" required>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" [(ngModel)]="registerCredentials.email" name="email" required>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" [(ngModel)]="registerCredentials.password" name="regPassword" required>
+            </mat-form-field>
+            
+            <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">
+              Create Account
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
